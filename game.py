@@ -19,7 +19,7 @@ from config import *
 class Game(object):
     """A class for running a game."""
 
-    def __init__(self):
+    def __init__(self, running = True):
         """Create a new game."""
 
         self._screen = self._makeScreen()           #Initialize game window
@@ -29,7 +29,8 @@ class Game(object):
         #Make key mappings for the player
         keys = self._makeControls()
 
-        self.run()  #Run the game
+        if running:
+            self.run()  #Run the game
 
     def _makeScreen(self):
         """Initializes and returns the pygame display (game window)."""
@@ -121,24 +122,34 @@ class Game(object):
         running = True
 
         while running:
+            print("r1")
             running = self.update()
+            print("r2")
 
             #clearing the layer and redrawing the background
             pygame.draw.rect(self._screen, LGRAY, (0, 0, RES_X, RES_Y))
+            print("r3")
 
             #Drawing static background objects
             self.drawBackground()
+            print("r4")
             self.makeMenu()
+            print("r5")
 
             #Drawing foreground objects
             self.drawForeground()
+            print("r6")
 
             #Wait for a while before updating the display window.
             self.tick()
+            print("r7")
             pygame.display.update()
+            print("r8")
 
         #Make sure the user can see the final results
+        print("r9")
         self.tick()
+        print("r0")
         return
 
 if __name__ == '__main__':
