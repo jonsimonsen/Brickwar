@@ -12,6 +12,7 @@ class Brickwar(Game):
         Game.__init__(self, False)
         self._level = 1 #Starts at level 1
         self._objects = self._makeLevel()
+        self._brick = self._makeSelf()
 
         self.run()
 
@@ -28,11 +29,21 @@ class Brickwar(Game):
 
         return objects
 
+    def _makeSelf(self):
+        """Make a brick for a player."""
+
+        return Brick(0, 440, 40, RED)
+
     def drawBackground(self):
         """Draws background objects"""
 
         for item in self._objects:
             item.draw(self._screen)
+
+    def drawForeground(self):
+        """Draws foreground objects"""
+
+        self._brick.draw(self._screen)
 
 if __name__ == '__main__':
     game = Brickwar()
