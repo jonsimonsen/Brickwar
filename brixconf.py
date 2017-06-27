@@ -6,3 +6,13 @@ from drawconf import *
 
 PLATFORM_H = 40
 PLATFORM_C = WHITE
+
+#exits
+
+EXIT_W = 80
+EXIT_H = 40
+EXIT_C = GREEN
+EXIT_T = "Exit"
+EXIT_TC = WHITE
+EXIT_F = 'arial'
+EXIT_FS = 16

@@ -13,6 +13,7 @@ class Brickwar(Game):
         self._level = 1 #Starts at level 1
         self._objects = self._makeLevel()
         self._brick = self._makeSelf()
+        self._exit = self._makeExit()
 
         self.run()
 
@@ -34,11 +35,18 @@ class Brickwar(Game):
 
         return Brick(0, 440, 40, RED)
 
+    def _makeExit(self):
+        """Make an exit for the current level."""
+
+        return Target(880, 440)
+
     def drawBackground(self):
         """Draws background objects"""
 
         for item in self._objects:
             item.draw(self._screen)
+
+        self._exit.draw(self._screen)
 
     def drawForeground(self):
         """Draws foreground objects"""

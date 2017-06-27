@@ -2,6 +2,7 @@
 
 from drawable import *
 from brixconf import *
+from library import makeFont
 
 class Platform(Rectangle):
     """A class for platforms"""
@@ -31,4 +32,27 @@ class Brick(Rectangle):
         """
 
         Rectangle.__init__(self, dim, dim, color, x, y)
-        
+
+class Target(Rectangle):
+    """A class for the exit from a level."""
+
+    def __init__(self, x, y):
+        """Create an exit on the level.
+
+        x, y: x- and y-components used for a Vector2D object pointing to the
+        upper left corner of the exit.
+
+        Width, height, color and text are assumed to be defined as constants.
+        """
+
+        Rectangle.__init__(self, EXIT_W, EXIT_H, EXIT_C, x, y)
+        self._text = EXIT_T
+        self._font = makeFont(EXIT_F, EXIT_FS)
+
+    def draw(self, layer):
+        """Draw the exit on the layer."""
+
+        Rectangle.draw(self, layer)
+
+        textBox = self._font.render(EXIT_T, True, EXIT_TC)
+        layer.blit(textBox, self._pos.x, self._pos.y)
