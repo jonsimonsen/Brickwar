@@ -55,4 +55,4 @@ class Target(Rectangle):
         Rectangle.draw(self, layer)
 
         textBox = self._font.render(EXIT_T, True, EXIT_TC)
-        layer.blit(textBox, self._pos.x, self._pos.y)
+        layer.blit(textBox, (self._pos.x + EXIT_OFFX, self._pos.y + EXIT_OFFY))

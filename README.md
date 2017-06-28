@@ -15,4 +15,8 @@ Repo for developing a platform game (brick warrior)
   -Did some cleanup of the code. <br>
   -Implemented a more generic menu and background. <br>
   -TODO: Add instructions to the menu. <br>
+
+# v0.2
+  -Added a brick warrior and an exit for levels. <br>
+  -TODO: Movement and collision detection for the brick. <br>
   
